@@ -1,0 +1,12 @@
+.DesktopNav {
+    display: none;
+}
+
+@media (min-width: 780px) {
+    .DesktopNav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+} 

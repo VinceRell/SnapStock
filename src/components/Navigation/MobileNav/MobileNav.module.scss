@@ -1,0 +1,13 @@
+.MobileNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+@media (min-width: 780px) {
+    .MobileNav {
+        display: none;
+    }
+} 
