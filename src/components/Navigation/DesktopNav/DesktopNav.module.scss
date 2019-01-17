@@ -4,9 +4,17 @@
 
 @media (min-width: 780px) {
     .DesktopNav {
+        padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
-} 
+
+    .Arrow {
+        font-weight: 600;
+    }
+
+
+}

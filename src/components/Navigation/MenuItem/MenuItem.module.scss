@@ -1,0 +1,48 @@
+.MenuItem {
+    position: relative;
+    list-style: none;
+
+    & a {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+.MainItem {
+    font-weight: 500;
+
+    & a {
+        padding: 20px 22px;
+    }
+
+    & a:hover,
+    & a:active {
+        background: #b7b7b7;
+    }
+}
+
+.SubItem {
+    font-weight: 500;
+    font-size: 0.8rem;
+
+    & a {
+        display: block;
+        width: 128px;
+        padding: 0.5rem 1rem;
+    }
+
+    & a:hover,
+    & a:active {
+        background:#b7b7b7;
+    }
+}
+
+@media (min-width: 780px) {
+    .SubItem {
+        width: 100%;
+
+        & a {
+            width: 100%;
+        }
+    }
+}

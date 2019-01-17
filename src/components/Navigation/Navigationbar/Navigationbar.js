@@ -7,6 +7,7 @@ import MobileNav from '../MobileNav/MobileNav';
 import DesktopNav from '../DesktopNav/DesktopNav';
 
 
+
 const navigationBar = () => (
     <header className={classes.main_header}>
         <Logo />

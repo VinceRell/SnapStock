@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //component imports
-import Navigationbar from './components/Navigation/Navigationbar/Navigationbar';
+import Layout from './containers/Layout/Layout';
+import Home from './containers/Home/Home';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Navigationbar />
-          <p>hero section</p>
-          <p>sub nav</p>
-          <p>images</p>
-          <p>categories</p>
-          <p>footer</p>
-      </div>
+      <BrowserRouter>
+        <Layout>
+          <Switch>
+            <Route path="/" component={Home}/>
+          </Switch>
+        </Layout>
+      </BrowserRouter>
     );
   }
 }

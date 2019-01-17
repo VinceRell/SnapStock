@@ -2,19 +2,22 @@ import React from 'react';
 import classes from './DesktopNav.module.scss';
 
 //component imports
-import NavigationItem from '../NavigationItem/NavigationItem';
-import NavigationSubmenu from '../NavigationSubmenu/NavigationSubmenu';
+import MenuItem from '../MenuItem/MenuItem';
+import SubMenu from '../SubMenu/SubMenu';
 
 const desktopNav = () => (
-    <ul className={classes.DesktopNav}>
-        <NavigationItem linkName={"Link"} classStyle={"NavItem"} >
-            <NavigationSubmenu/>
-        </NavigationItem>
+      <ul className={classes.DesktopNav}>
+            <MenuItem linkType={"MainItem"} linkName={"Verkennen ˅"} >
+                  <SubMenu>
+                        <MenuItem linkType={"SubItem"} linkName={"Editor's Choice"} />
+                        <MenuItem linkType={"SubItem"} linkName={"Beelden"} />
+                        <MenuItem linkType={"SubItem"} linkName={"Videos"} />
+                  </SubMenu>
+            </MenuItem>
 
-        <NavigationItem linkName={"Aanmelden"} classStyle={"NavItem"} />
-
-        <NavigationItem linkName={"Registreren"} classStyle={"NavItem"} />
-    </ul>
+            <MenuItem linkType={"MainItem"} linkName={"Aanmelden"} />
+            <MenuItem linkType={"MainItem"} linkName={"Registreren"} />
+      </ul>
 );
 
 export default desktopNav;
