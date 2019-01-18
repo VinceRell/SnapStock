@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 //component imports
+import Hero from '../../components/Hero/Hero';
 
 class Home extends Component {
     render() {
         return (
           <div>
-            <p>hero section</p>
+            <Hero/>
             <p>sub nav</p>
             <p>images</p>
             <p>categories</p>
