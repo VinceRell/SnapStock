@@ -1,0 +1,19 @@
+.Input {
+    &__search,
+    &__select {
+        display: block;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: #fbfbfb;
+        font-size: 1rem;
+    }
+
+    &__search {
+        width: 80%;
+    }
+
+    &__select {
+        margin-right: 1rem;
+    }
+}

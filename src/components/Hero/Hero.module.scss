@@ -1,40 +1,96 @@
 .Hero {
-    height: 90vh;
+    height: 100vh;
     position: relative;
     background: url('../../assets/images/hero-bg.jpg');
-
+    background-position: center;
+    
     &::before {
         content: '';
-        display: block;
         position: absolute;
-        background: #000;
-        opacity: 0.5;
         width: 100%;
         height: 100%;
+        background: #000;
+        opacity: 0.5;
     }
-    
 
-    &__text_container {
-        z-index: 10;
+    &__content {
+        width: 100%;
+        max-width: 500px;
+        padding: 1rem;
         position: absolute;
-        top: 25%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    &__title,
-    &__subtitle {
-        margin-bottom: 0.5rem;
         text-align: center;
-        font-weight: 400;
-        color: #fff;
+        top: 35%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
     }
 
     &__title {
-        font-size: 2.2rem;
+        margin: 0;
+        color: #fff;
+        text-shadow: 1px 1px #000;
+        font-size: 2rem;
+        font-weight: 400;
     }
 
     &__subtitle {
-        font-size: 1.4rem;
+        margin: 1.5rem auto 0 auto;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 400;
+        text-shadow: 1px 1px #000;
+    }
+
+    &__searchform {
+        margin-top: 3rem;
+        background: #fbfbfb;
+        padding: 10px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__search {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 400px) {
+    .Hero {
+        height: 80vh;
+    }
+}
+
+@media (min-width: 600px) {
+    .Hero {
+        height: 90vh;
+
+        &__content {
+            max-width: 600px;
+            top: 40%;
+        }
+    
+        &__title {
+            font-size: 2.2rem;
+        }
+    
+        &__subtitle {
+            font-size: 1.4rem;
+        }
+    
+    }
+}
+
+@media (min-width: 800px) {
+    .Hero {
+
+        &__content {
+            max-width: 800px;
+        }
+    
+        &__title {
+            font-size: 3rem;
+        }
+    
     }
 }

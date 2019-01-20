@@ -13,7 +13,7 @@ class Home extends Component {
           search: {
             elementType: 'input',
             elementConfig: {
-              type: 'text',
+              type: 'search',
               placeholder: 'Zoek images, vectors of videos'
             },
             value: ''
@@ -36,14 +36,16 @@ class Home extends Component {
     }
 
     inputChangeHandler = (event, inputIdentifier) => {
-        // create a constant for storing the inputIdentifier and its value stored in the event object
-        const updatedFormElement = updatedObject(this.state.searchForm[inputIdentifier], {
+      /* use the updatedObject function to return the searchForm object from the state
+        width the updated value of the input identifier
+      */ 
+      const updatedForm = updatedObject(this.state.searchForm, {
+        [inputIdentifier]: updatedObject(this.state.searchForm[inputIdentifier], {
           value: event.target.value
-        });
-        // create a constant that takes in the state object and the inputIdentifier with the first constant as a value
-        const updatedForm = updatedObject(this.state.searchForm, updatedFormElement);
-        // set the state to the updated object
-        this.setState({searchForm: updatedForm});
+        })
+      })
+
+      this.setState({searchForm: updatedForm});
     }
 
     render() {

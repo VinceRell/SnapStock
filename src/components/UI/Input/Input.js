@@ -1,11 +1,15 @@
 import React from 'react';
+import classes from './Input.module.scss';
+
 
 const input = (props) => {
     let inputElement = null;
 
     switch (props.elementType) {
         case ("input"):
-            inputElement = <input {...props.elementConfig}
+            inputElement = <input 
+                className={classes.Input__search}
+                {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed} />
             break;
@@ -19,6 +23,7 @@ const input = (props) => {
 
         case ("select"):
             inputElement = ( <select
+                    className={classes.Input__select}
                     value={props.value}
                     onChange={props.changed}>
                     {props.elementConfig.options.map(option => (
@@ -31,17 +36,16 @@ const input = (props) => {
             break;
 
         default:
-            inputElement = <input {...props.elementConfig}
+            inputElement = <input 
+                {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed} />
     }
 
     return (
-        <div>
-            <label>
-                {inputElement}
-            </label>
-        </div>
+        <React.Fragment>
+            {inputElement}
+        </React.Fragment>
     );
 }
 

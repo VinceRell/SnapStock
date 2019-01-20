@@ -1,0 +1,16 @@
+.Btn {
+    background: #3eb060;
+    border: none;
+    color: #fff;
+
+    &--cta {
+        padding: 10px  1.5rem;
+        border-radius: 5px;
+        font-size: 1.1rem;
+    }
+
+    &--search {
+        padding: 10px;
+        border-radius: 50%;
+    }
+}
