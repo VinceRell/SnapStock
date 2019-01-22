@@ -37,6 +37,21 @@
     }
 }
 
+.SecondaryItem {
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    & a {
+        padding: 20px 22px;
+    }
+
+    & a:hover,
+    & a:active {
+        color: #0a88d3;
+        border-bottom: 2px solid #0a88d3;
+    }
+}
+
 @media (min-width: 780px) {
     .SubItem {
         width: 100%;

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { updatedObject } from '../../shared/utility';
+import axios from 'axios';
 
 //component imports
 import Hero from '../../components/Hero/Hero';
+import Gallery from '../../components/Gallery/Gallery';
 
 
 class Home extends Component {
@@ -31,8 +33,17 @@ class Home extends Component {
             },
             value: 'beelden'
           }
-        }
+        },
+        images: null
       }
+    }
+
+    componentDidMount(){
+      axios.get("https://pixabay.com/api/?key=136304-b12526e3e307af45bcca2c3ea&image_type=photo")
+          .then(response => {
+            this.setState({images: response.data.hits});
+          })
+          .catch(error => error);
     }
 
     inputChangeHandler = (event, inputIdentifier) => {
@@ -54,9 +65,7 @@ class Home extends Component {
             <Hero 
               changeInput={this.inputChangeHandler} 
               inputElements={this.state.searchForm}/>
-            <p>sub nav</p>
-            <p>images</p>
-            <p>categories</p>
+            <Gallery imageCollection={this.state.images}/>
             <p>footer</p>
           </div>
         );
