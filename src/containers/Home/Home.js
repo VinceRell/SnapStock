@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { updatedObject } from '../../shared/utility';
-import axios from 'axios';
+import axios from '../../axios-gallery';
 
 //component imports
 import Hero from '../../components/Hero/Hero';
 import Gallery from '../../components/Gallery/Gallery';
+
 
 
 class Home extends Component {
@@ -34,14 +35,40 @@ class Home extends Component {
             value: 'beelden'
           }
         },
-        images: null
+        gallery: null
       }
     }
 
     componentDidMount(){
-      axios.get("https://pixabay.com/api/?key=136304-b12526e3e307af45bcca2c3ea&image_type=photo")
+      this.getGalleryHandler();
+    }
+
+    getGalleryHandler() {
+      // retrieve the images from the API
+      const apiKey = "136304-b12526e3e307af45bcca2c3ea";
+      let req = `/?key=${apiKey}&image_type=photo`;
+
+      axios.get(req)
           .then(response => {
-            this.setState({images: response.data.hits});
+            let galleryCollection = response.data.hits.slice(0, 18);
+            this.setState({gallery: galleryCollection});
+          })
+          .catch(error => error);
+    }
+
+    switchGalleryHandler = (type) => {
+      const apiKey = "136304-b12526e3e307af45bcca2c3ea";
+      let galleryType = type;
+      let req = `/?key=${apiKey}&image_type=${galleryType}`;
+
+      if(galleryType === "videos") {
+        req = `/${galleryType}/?key=${apiKey}`;
+      }
+
+      axios.get(req)
+          .then(response => {
+            let galleryCollection = response.data.hits.slice(0, 18);
+            this.setState({gallery: galleryCollection});
           })
           .catch(error => error);
     }
@@ -65,7 +92,7 @@ class Home extends Component {
             <Hero 
               changeInput={this.inputChangeHandler} 
               inputElements={this.state.searchForm}/>
-            <Gallery imageCollection={this.state.images}/>
+            <Gallery galleryCollection={this.state.gallery} switchGallery={this.switchGalleryHandler}/>
             <p>footer</p>
           </div>
         );

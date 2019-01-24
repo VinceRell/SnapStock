@@ -2,16 +2,18 @@ import React from 'react';
 import classes from './GalleryContainer.module.scss';
 
 const galleryContainer = (props) => {
-    let images = "loading";
-    if(props.images) {
-        images = props.images.map(image => (
-            <img src={image.webformatURL} alt={image.tags} key={image.id}/>
+    let gallery = "loading";
+    if(props.gallery) {
+        gallery = props.gallery.map(galleryItem => (
+            <figure  className={classes.GalleryContainer__container} key={galleryItem.id}>
+                <img src={galleryItem.webformatURL} alt={galleryItem.tags}  className={classes.GalleryContainer__image}/>
+            </figure>
         ));
     }
 
     return(
         <section className={classes.GalleryContainer}>
-            {images}
+            {gallery}
         </section>
     );
 };

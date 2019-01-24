@@ -30,7 +30,7 @@ const hero = (props) => {
                     value={formElement.config.value}  
                     changed={(event) => props.changeInput(event, formElement.id)}/>
             ))}
-            <Button btnStyle={"search"}>
+            <Button btnStyles={"Btn Btn--search"}>
                 <img src={Search} alt="Zoeken" className={classes.Hero__search}/>
             </Button>
         </form>

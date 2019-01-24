@@ -2,11 +2,17 @@
     background: #3eb060;
     border: none;
     color: #fff;
+    cursor: pointer;
+    outline: none;
 
     &--cta {
         padding: 10px  1.5rem;
         border-radius: 5px;
         font-size: 1.1rem;
+        
+        &:hover {
+            background: #246638;
+        }
     }
 
     &--search {

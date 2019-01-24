@@ -2,16 +2,38 @@ import React from 'react';
 import classes from './GalleryNav.module.scss';
 
 // Component imports
-import MenuItem from '../../Navigation/MenuItem/MenuItem';
+import Button from '../../UI/Button/Button';
 
 const galleryNav = (props) => (
   <section className={classes.GalleryNav}>
-      <nav className={classes.GalleryNav__navbar}>
-        <MenuItem linkType={"SecondaryItem"} linkName={"Foto's"}/>
-        <MenuItem linkType={"SecondaryItem"} linkName={"Illustraties"}/>
-        <MenuItem linkType={"SecondaryItem"} linkName={"Vectors"}/>
-        <MenuItem linkType={"SecondaryItem"} linkName={"Videos"}/>
-        <MenuItem linkType={"SecondaryItem"} linkName={"Meer..."}/>
+      <nav className={classes.GalleryNav__tab_menu}>
+        <ul className={classes.GalleryNav__tab_items}>
+          <li onClick={() => props.switchHandler("photo")}>
+              <Button btnStyles={"Btn Btn--cta"} >
+                  Foto's
+              </Button>
+          </li>
+          <li className={classes["hideItem--tablet"]} onClick={() => props.switchHandler("illustration")}>
+              <Button btnStyles={"Btn Btn--cta"}>
+                Illustraties
+              </Button>
+          </li>
+          <li className={classes["hideItem--desktop"]} onClick={() => props.switchHandler("vector")}>
+              <Button btnStyles={"Btn Btn--cta"}>
+                Vectors
+              </Button>
+          </li>
+          <li  onClick={() => props.switchHandler("videos")}>
+              <Button btnStyles={"Btn Btn--cta"}>
+                Videos
+              </Button>
+          </li>
+          <li>
+              <Button btnStyles={"Btn Btn--cta"}>
+                Meer {String.fromCharCode(8594)} 
+              </Button>
+          </li>
+        </ul>
       </nav>
   </section>
 ); 

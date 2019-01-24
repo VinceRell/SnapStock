@@ -1,12 +1,18 @@
 import React from 'react';
 import classes from './Button.module.scss';
 
-const button = (props) => (
-    <React.Fragment>
-        <button className={[classes.Btn, classes[`Btn--${props.btnStyle}`]].join(" ")}>
-            {props.children}    
-        </button>
-    </React.Fragment>
-);
+const button = (props) => {
+    let styleClasses = props.btnStyles.split(" ").reduce((line, word)=>{
+     return line.concat(classes[word]);
+    },[]);
+
+    return (
+        <React.Fragment>
+            <button className={styleClasses.join(" ")}>
+                {props.children}    
+            </button>
+        </React.Fragment>
+    );
+}
 
 export default button;

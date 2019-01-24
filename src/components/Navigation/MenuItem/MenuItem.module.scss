@@ -16,7 +16,8 @@
     }
 
     & a:hover,
-    & a:active {
+    & a:active,
+    & a.active {
         background: #b7b7b7;
     }
 }
@@ -32,23 +33,9 @@
     }
 
     & a:hover,
-    & a:active {
+    & a:active,
+    & a.active {
         background:#b7b7b7;
-    }
-}
-
-.SecondaryItem {
-    font-size: 1.1rem;
-    font-weight: 500;
-
-    & a {
-        padding: 20px 22px;
-    }
-
-    & a:hover,
-    & a:active {
-        color: #0a88d3;
-        border-bottom: 2px solid #0a88d3;
     }
 }
 
