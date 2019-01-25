@@ -14,6 +14,21 @@
         align-items: center;
         justify-content: space-evenly;
     }
+
+    &__tab_item {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
+        border-bottom: 2px solid transparent;
+    }
+
+    &__tab_item:hover,
+    &__active{
+       color: #0a88d3;
+       border-bottom: 2px solid #0a88d3;
+       cursor: pointer;
+    }
 }
 
 @media (max-width:  580px) {

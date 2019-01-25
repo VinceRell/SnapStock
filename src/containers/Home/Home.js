@@ -35,28 +35,19 @@ class Home extends Component {
             value: 'beelden'
           }
         },
+        galleryType: null,
         gallery: null
       }
     }
 
     componentDidMount(){
-      this.getGalleryHandler();
+      this.getGalleryHandler("photo");
     }
 
-    getGalleryHandler() {
+
+
+    getGalleryHandler(type) {
       // retrieve the images from the API
-      const apiKey = "136304-b12526e3e307af45bcca2c3ea";
-      let req = `/?key=${apiKey}&image_type=photo`;
-
-      axios.get(req)
-          .then(response => {
-            let galleryCollection = response.data.hits.slice(0, 18);
-            this.setState({gallery: galleryCollection});
-          })
-          .catch(error => error);
-    }
-
-    switchGalleryHandler = (type) => {
       const apiKey = "136304-b12526e3e307af45bcca2c3ea";
       let galleryType = type;
       let req = `/?key=${apiKey}&image_type=${galleryType}`;
@@ -68,9 +59,13 @@ class Home extends Component {
       axios.get(req)
           .then(response => {
             let galleryCollection = response.data.hits.slice(0, 18);
-            this.setState({gallery: galleryCollection});
+            this.setState({galleryType: galleryType, gallery: galleryCollection});
           })
           .catch(error => error);
+    }
+
+    switchGalleryHandler = (type) => {
+      this.getGalleryHandler(type);
     }
 
     inputChangeHandler = (event, inputIdentifier) => {
@@ -92,7 +87,10 @@ class Home extends Component {
             <Hero 
               changeInput={this.inputChangeHandler} 
               inputElements={this.state.searchForm}/>
-            <Gallery galleryCollection={this.state.gallery} switchGallery={this.switchGalleryHandler}/>
+            <Gallery 
+              galleryCollection={this.state.gallery} 
+              galleryName={this.state.galleryType}
+              switchGallery={this.switchGalleryHandler}/>
             <p>footer</p>
           </div>
         );

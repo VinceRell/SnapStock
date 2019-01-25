@@ -6,8 +6,12 @@ import GalleryContainer from './GalleryContainer/GalleryContainer';
 
 const gallery = (props) => (
     <section>
-        <GalleryNav switchHandler={props.switchGallery}/>
-        <GalleryContainer gallery={props.galleryCollection}/>
+        <GalleryNav 
+            galleryTab={props.galleryName}
+            switchHandler={props.switchGallery}/>
+        <GalleryContainer 
+            galleryTab={props.galleryName}
+            gallery={props.galleryCollection}/>
     </section>
 );
 
