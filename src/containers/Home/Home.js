@@ -91,7 +91,6 @@ class Home extends Component {
               galleryCollection={this.state.gallery} 
               galleryName={this.state.galleryType}
               switchGallery={this.switchGalleryHandler}/>
-            <p>footer</p>
           </div>
         );
     }
