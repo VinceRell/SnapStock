@@ -8,12 +8,20 @@ import DesktopNav from '../DesktopNav/DesktopNav';
 
 
 
-const navigationBar = () => (
+const navigationBar = (props) => (
     <header className={classes.main_header}>
         <Logo />
         <nav>
-            <MobileNav />
-            <DesktopNav />
+            <MobileNav 
+                exploreMenu={props.toggleExploreMenu}
+                userMenu={props.toggleUserMenu}
+                show={props.showMenu}
+                close={props.closeMenu}/>
+            <DesktopNav 
+                 exploreMenu={props.toggleExploreMenu}
+                 userMenu={props.toggleUserMenu}
+                 show={props.showMenu}
+                 close={props.closeMenu}/>
         </nav>
     </header>
 );

@@ -44,8 +44,6 @@ class Home extends Component {
       this.getGalleryHandler("photo");
     }
 
-
-
     getGalleryHandler(type) {
       // retrieve the images from the API
       const apiKey = "136304-b12526e3e307af45bcca2c3ea";
