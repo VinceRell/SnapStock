@@ -15,9 +15,9 @@ const mobileNav = (props) => {
     if(props.show.explore) {
         exploreMenu = (
             <SubMenu>
-                <MenuItem linkType={"SubItem"} linkName={"Editor's Choice"} />
-                <MenuItem linkType={"SubItem"}  linkName={"Beelden"}/>
-                <MenuItem linkType={"SubItem"} linkName={"Videos"} />
+                <MenuItem routeName="/editors_choice" linkType={"SubItem"} linkName={"Editor's Choice"} />
+                <MenuItem routeName="/photos" linkType={"SubItem"}  linkName={"Beelden"}/>
+                <MenuItem routeName="/videos" linkType={"SubItem"} linkName={"Videos"} />
             </SubMenu>
         );
     }
@@ -25,8 +25,8 @@ const mobileNav = (props) => {
     if(props.show.user) {
         userMenu = (
             <SubMenu>
-            <MenuItem linkType={"SubItem"} linkName={"Aanmelden"} />
-            <MenuItem linkType={"SubItem"} linkName={"Registreren"}/>
+            <MenuItem routeName="/signin" linkType={"SubItem"} linkName={"Aanmelden"} />
+            <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Registreren"}/>
         </SubMenu>
         );
     }

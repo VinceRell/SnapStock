@@ -1,5 +1,9 @@
 .Logo {
     margin: 0.5rem 1rem;
+    
+    & a {
+        text-decoration: none;
+    }
 
     &__title {
         margin: 0;

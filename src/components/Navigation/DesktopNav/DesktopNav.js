@@ -11,23 +11,25 @@ const desktopNav = (props) => {
       if (props.show.explore) {
             exploreMenu = (
                   <SubMenu>
-                        <MenuItem linkType={"SubItem"} linkName={"Editor's Choice"} />
-                        <MenuItem linkType={"SubItem"} linkName={"Beelden"} />
-                        <MenuItem linkType={"SubItem"} linkName={"Videos"} />
+                        <MenuItem routeName="/editors_choice" linkType={"SubItem"} linkName={"Editor's Choice"} />
+                        <MenuItem routeName="/photos" linkType={"SubItem"} linkName={"Beelden"} />
+                        <MenuItem routeName="/videos" linkType={"SubItem"} linkName={"Videos"} />
                   </SubMenu>
             );
       }
 
       return (
-            <ul className={classes.DesktopNav} onMouseLeave={props.close}>
-                  <MenuItem linkType={"MainItem"} linkName={"Verkennen ˅"} >
-                        <div onMouseOver={props.exploreMenu}>
-                              {exploreMenu}
-                        </div>
+            <ul className={classes.DesktopNav}>
+             <span onMouseEnter={props.exploreMenu} onMouseLeave={props.close}>
+                  <MenuItem routeName="/editors_choice" linkType={"MainItem"} linkName={"Verkennen ˅"} >
+                        {exploreMenu}
                   </MenuItem>
+             </span>
+                  
+                  
 
-                  <MenuItem linkType={"MainItem"} linkName={"Aanmelden"} />
-                  <MenuItem linkType={"MainItem"} linkName={"Registreren"} />
+                  <MenuItem routeName="/signin" linkType={"MainItem"} linkName={"Aanmelden"} />
+                  <MenuItem routeName="/signup" linkType={"MainItem"} linkName={"Registreren"} />
             </ul>
       );
 }
