@@ -13,15 +13,14 @@ const navigationBar = (props) => (
         <Logo />
         <nav>
             <MobileNav 
-                exploreMenu={props.toggleExploreMenu}
-                userMenu={props.toggleUserMenu}
-                show={props.showMenu}
-                close={props.closeMenu}/>
+                isShowing={props.showMenu}
+                toggleExplore={props.toggleExploreMenu}
+                toggleUser={props.toggleUserMenu}
+                closeMenu={props.closeMenu}/>
             <DesktopNav 
-                 exploreMenu={props.toggleExploreMenu}
-                 userMenu={props.toggleUserMenu}
-                 show={props.showMenu}
-                 close={props.closeMenu}/>
+                isShowing={props.showMenu}
+                toggleExplore={props.toggleExploreMenu}
+                closeMenu={props.closeMenu}/>
         </nav>
     </header>
 );

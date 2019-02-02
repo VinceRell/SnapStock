@@ -7,8 +7,7 @@ import SubMenu from '../SubMenu/SubMenu';
 
 const desktopNav = (props) => {
       let exploreMenu = null;
-
-      if (props.show.explore) {
+      if (props.isShowing.explore) {
             exploreMenu = (
                   <SubMenu>
                         <MenuItem routeName="/editors_choice" linkType={"SubItem"} linkName={"Editor's Choice"} />
@@ -17,16 +16,14 @@ const desktopNav = (props) => {
                   </SubMenu>
             );
       }
-
       return (
             <ul className={classes.DesktopNav}>
-             <span onMouseEnter={props.exploreMenu} onMouseLeave={props.close}>
-                  <MenuItem routeName="/editors_choice" linkType={"MainItem"} linkName={"Verkennen ˅"} >
-                        {exploreMenu}
-                  </MenuItem>
-             </span>
-                  
-                  
+                  <li className={classes.Explore} onMouseLeave={props.closeMenu}>
+                        <span onClick={props.toggleExplore}>Verken{String.fromCharCode(9662)}</span>
+                        <div onClick={props.closeMenu}>
+                              {exploreMenu}
+                        </div>
+                  </li>
 
                   <MenuItem routeName="/signin" linkType={"MainItem"} linkName={"Aanmelden"} />
                   <MenuItem routeName="/signup" linkType={"MainItem"} linkName={"Registreren"} />

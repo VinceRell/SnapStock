@@ -11,37 +11,40 @@ import MenuItem from '../MenuItem/MenuItem';
 
 const mobileNav = (props) => {
     let exploreMenu = null;
-    let userMenu = null;
-    if(props.show.explore) {
+    if(props.isShowing.explore) {
         exploreMenu = (
             <SubMenu>
-                <MenuItem routeName="/editors_choice" linkType={"SubItem"} linkName={"Editor's Choice"} />
-                <MenuItem routeName="/photos" linkType={"SubItem"}  linkName={"Beelden"}/>
-                <MenuItem routeName="/videos" linkType={"SubItem"} linkName={"Videos"} />
+               <MenuItem routeName="/editors_choice" linkType={"SubItem"} linkName={"Editor's Choice"} />
+               <MenuItem routeName="/photos" linkType={"SubItem"}  linkName={"Beelden"}/>
+               <MenuItem routeName="/videos" linkType={"SubItem"} linkName={"Videos"} />
+           </SubMenu> 
+        );
+    }
+
+    let userMenu = null;
+    if(props.isShowing.user) {
+        userMenu = (
+            <SubMenu>
+                <MenuItem routeName="/signin" linkType={"SubItem"} linkName={"Aanmelden"} />
+                <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Registreren"}/>
             </SubMenu>
         );
     }
 
-    if(props.show.user) {
-        userMenu = (
-            <SubMenu>
-            <MenuItem routeName="/signin" linkType={"SubItem"} linkName={"Aanmelden"} />
-            <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Registreren"}/>
-        </SubMenu>
-        );
-    }
-
     return (
-        <ul className={classes.MobileNav} onMouseLeave={props.close}>
-    
+        <ul className={classes.MobileNav} onMouseLeave={props.closeMenu}>
             <div className={classes.MobileNav__icon_container}>
-                <img src={User} alt="user" className={classes.MobileNav__icon} onMouseOver={props.userMenu}/>
-                {userMenu}
+                <img src={User} alt="user" className={classes.MobileNav__icon} onClick={props.toggleUser}/>
+                <div onClick={props.closeMenu}>
+                    {userMenu}
+                </div>
             </div>
     
             <div className={classes.MobileNav__icon_container}>
-                <img src={Bars} alt="bars" className={classes.MobileNav__icon} onMouseOver={props.exploreMenu}/>
-                {exploreMenu}
+                <img src={Bars} alt="bars" className={classes.MobileNav__icon} onClick={props.toggleExplore}/>
+                <div onClick={props.closeMenu}>
+                    {exploreMenu}
+                </div>
             </div>
     
         </ul>

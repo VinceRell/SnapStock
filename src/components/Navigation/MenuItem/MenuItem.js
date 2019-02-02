@@ -8,12 +8,11 @@ const menuItem = (props) => {
     },[classes.MenuItem]);
 
     return(
-        <li className={styleClasses.join(" ")}>
-        <NavLink to={props.routeName}>
-            {props.linkName}
-        </NavLink>
-        {props.children}
-    </li>
+        <li className={styleClasses.join(" ")} >
+            <NavLink to={props.routeName}>
+                {props.linkName}
+            </NavLink>
+        </li>
     );
 };
 

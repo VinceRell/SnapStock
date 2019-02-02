@@ -12,9 +12,20 @@
         justify-content: space-between;
     }
 
-    .Arrow {
-        font-weight: 600;
+    .Explore {
+        position: relative;
+        list-style: none;
+        font-weight: 500;
+        color: #333;
+        cursor: pointer;
+
+        & span {
+            display: block;
+            padding: 20px 22px;
+        }
+
+        & span:hover {
+            background: #b7b7b7;
+        }
     }
-
-
 }
