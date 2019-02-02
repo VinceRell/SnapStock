@@ -23,6 +23,11 @@
         border-bottom: 2px solid transparent;
     }
 
+    &__tab_item a {
+        text-decoration: none;
+        color: #333;
+    }
+
     &__tab_item:hover,
     &__active{
        color: #0a88d3;
