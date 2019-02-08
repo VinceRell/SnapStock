@@ -15,8 +15,8 @@ const mobileNav = (props) => {
         exploreMenu = (
             <SubMenu>
                <MenuItem routeName="/editors_choice" linkType={"SubItem"} linkName={"Editor's Choice"} />
-               <MenuItem routeName="/photos" linkType={"SubItem"}  linkName={"Beelden"}/>
-               <MenuItem routeName="/videos" linkType={"SubItem"} linkName={"Videos"} />
+               <MenuItem routeName="/gallery" linkType={"SubItem"}  linkName={"Beelden"}/>
+               <MenuItem routeName="/gallery" linkType={"SubItem"} linkName={"Videos"} />
            </SubMenu> 
         );
     }

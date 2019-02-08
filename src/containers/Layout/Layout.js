@@ -7,14 +7,11 @@ import Footer from '../../components/Footer/Footer';
 
 
 class Layout extends Component {
-    constructor() {
-        super();
-        this.state = {
-            showMenu: {
-                user: false,
-                explore: false
-            }
-        };
+    state = {
+        showMenu: {
+            user: false,
+            explore: false
+        }
     }
 
     toggleExploreMenuHandler = () => {
