@@ -13,7 +13,23 @@
         width: 80%;
     }
 
+    &__search_nav {
+        @extend .Input__search;
+        padding: 5px;
+        height: 30px;
+        background: #fff;
+    }
+
     &__select {
         margin-right: 1rem;
+    }
+
+    &__select_nav {
+        @extend .Input__select;
+        padding: 5px;
+        margin: 0;
+        height: 30px;
+        min-width: 70px;
+        background: #fff;
     }
 }

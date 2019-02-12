@@ -4,6 +4,7 @@ import classes from './MobileNav.module.scss';
 //image imports
 import User from '../../../assets/images/user-1.png';
 import Bars from '../../../assets/images/bars.png';
+import Search from '../../../assets/images/search.png';
 
 //component imports
 import SubMenu from '../SubMenu/SubMenu';
@@ -31,14 +32,26 @@ const mobileNav = (props) => {
         );
     }
 
+    let searchIcon = null;
+    if(props.pageLocation !== "/") {
+        searchIcon = (
+            <div className={classes.MobileNav__icon_container}>
+                <img src={Search} alt="search" className={classes.MobileNav__icon} onClick={props.toggleSearch}/>
+            </div>
+        );
+    }
+
     return (
-        <ul className={classes.MobileNav} onMouseLeave={props.closeMenu}>
+        <ul className={classes.MobileNav}>
+
             <div className={classes.MobileNav__icon_container}>
                 <img src={User} alt="user" className={classes.MobileNav__icon} onClick={props.toggleUser}/>
                 <div onClick={props.closeMenu}>
                     {userMenu}
                 </div>
             </div>
+
+           {searchIcon}
     
             <div className={classes.MobileNav__icon_container}>
                 <img src={Bars} alt="bars" className={classes.MobileNav__icon} onClick={props.toggleExplore}/>

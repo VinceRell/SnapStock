@@ -18,10 +18,10 @@ class EditorsChoice extends Component {
         // retrieve the images from the API
         const apiKey = "136304-b12526e3e307af45bcca2c3ea";
         let galleryType = type;
-        let req = `/?key=${apiKey}&image_type=${galleryType}&editors_choice=true&per_page=24`;
+        let req = `/?key=${apiKey}&lang=nl&image_type=${galleryType}&editors_choice=true&per_page=24`;
   
         if(galleryType === "videos") {
-          req = `/${galleryType}/?key=${apiKey}&editors_choice=true&per_page=24`;
+          req = `/${galleryType}/?key=${apiKey}&lang=nl&editors_choice=true&per_page=24`;
         }
   
         axios.get(req)

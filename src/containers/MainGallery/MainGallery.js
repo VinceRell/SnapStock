@@ -29,9 +29,9 @@ class MainGallery extends Component {
             let galleryType = type;
 
             // create query to fetch all images/videos
-            let req = `/?key=${apiKey}&image_type=${galleryType}&per_page=42`;
+            let req = `/?key=${apiKey}&lang=nl&image_type=${galleryType}&per_page=42`;
             if (galleryType === "videos") {
-                req = `/videos/?key=${apiKey}&video_type=all&per_page=42`;
+                req = `/videos/?key=${apiKey}&lang=nl&video_type=all&per_page=42`;
             }
 
             // create query to fetch specific images/videos
@@ -41,9 +41,9 @@ class MainGallery extends Component {
                     .substring(1).split(" ").join("+");
 
                 galleryType = location.pathname.replace("/gallery/", "");
-                req = `/?key=${apiKey}&q=${searchTerm}&image_type=${galleryType}&per_page=42`;
+                req = `/?key=${apiKey}&lang=nl&q=${searchTerm}&image_type=${galleryType}&per_page=42`;
                 if (galleryType === "videos") {
-                    req = `/videos/?key=${apiKey}&q=${searchTerm}&video_type=all&per_page=42`;
+                    req = `/videos/?key=${apiKey}&lang=nl&q=${searchTerm}&video_type=all&per_page=42`;
                 }
             }
 

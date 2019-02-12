@@ -19,7 +19,7 @@ const desktopNav = (props) => {
       return (
             <ul className={classes.DesktopNav}>
                   <li className={classes.Explore} onMouseLeave={props.closeMenu}>
-                        <span onClick={props.toggleExplore}>Verken{String.fromCharCode(9662)}</span>
+                        <span onMouseEnter={props.toggleExplore}>Verken{String.fromCharCode(9662)}</span>
                         <div onClick={props.closeMenu}>
                               {exploreMenu}
                         </div>

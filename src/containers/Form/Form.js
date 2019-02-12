@@ -71,21 +71,29 @@ class Form extends Component {
             });
         }
         
+        let style = classes.Form__searchform;
+        let submitBtn = "Btn Btn--search";
+        if(this.props.location.pathname !== "/") {
+            style = classes.Form__searchbar;
+            submitBtn = "Btn Btn--search_nav"
+        }
+
         /*
          create the form element by looping through the form element array 
          and create the input elements by passing the configurations as props
         */
         return (
-            <form className={classes.Form__searchform} onSubmit={this.searchImageHandler}>
+            <form className={style} onSubmit={this.searchImageHandler}>
                 {formElementArray.map(formElement => (
                     <Input
                         key={formElement.id}
                         elementType={formElement.config.elementType}
                         elementConfig={formElement.config.elementConfig}
+                        showSearch={this.props.location.pathname}
                         value={formElement.config.value}
                         changed={(event) => this.inputChangeHandler(event, formElement.id)} />
                 ))}
-                <Button btnStyles={"Btn Btn--search"}>
+                <Button btnStyles={submitBtn}>
                     <img src={Search} alt="Zoeken" className={classes.Form__search} />
                 </Button>
             </form>

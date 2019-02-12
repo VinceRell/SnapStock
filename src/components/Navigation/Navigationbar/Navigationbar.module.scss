@@ -1,8 +1,43 @@
 .main_header {
-    width: 100%;
-    background: #fafafa;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
+    background: #fbfbfb;
+    
+    &__item_container {
+       position: relative;
+    }
+
+    &__searchbar_container {
+        position: absolute;
+        width: 100vw;
+        transform:  scaleY(0);
+        transform-origin: top;
+        transition: transform 0.2s ease-in-out;
+    }
+}
+
+.display_search {
+    transform: scaleY(1);
+}
+
+
+@media (min-width: 780px) {
+   .main_header { 
+
+        &__item_container {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        &__searchbar_container {
+            position: static;
+            transform: scaleY(1);
+            width: 30vw;
+        }
+
+   }
 }

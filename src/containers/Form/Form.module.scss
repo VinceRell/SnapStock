@@ -1,6 +1,4 @@
 .Form {
-    min-width: 150px;
-
     &__searchform {
         margin-top: 3rem;
         background: #fbfbfb;
@@ -8,10 +6,19 @@
         border-radius: 30px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
 
     &__search {
         width: 20px;
         height: 20px;
     }
+
+    &__searchbar {
+        @extend .Form__searchform;
+        margin: 0;
+        border-radius: 0px;
+    }
 }
+
+

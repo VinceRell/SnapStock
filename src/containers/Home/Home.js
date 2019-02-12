@@ -18,9 +18,9 @@ class Home extends Component {
     let galleryType = type;
 
     // build the query string
-    let req = `/?key=${apiKey}&image_type=${galleryType}`;
+    let req = `/?key=${apiKey}&lang=nl&image_type=${galleryType}`;
     if (galleryType === "videos") {
-      req = `/${galleryType}/?key=${apiKey}`;
+      req = `/${galleryType}/?key=${apiKey}&lang=nl`;
     }
  
     // fetch images from the api, cut total image down to fit on page

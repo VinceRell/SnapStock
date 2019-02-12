@@ -11,7 +11,8 @@ class Layout extends Component {
         showMenu: {
             user: false,
             explore: false
-        }
+        },
+        displaySearch: false
     }
 
     toggleExploreMenuHandler = () => {
@@ -32,16 +33,18 @@ class Layout extends Component {
         this.setState({showMenu: updatedMenu}, () => this.closeMenuHandler);
     }
 
+    toggleSearchHandler = () => {
+        this.setState({displaySearch: !this.state.displaySearch});
+    }
+
     closeMenuHandler = () => {
         const updatedMenu = updatedObject(this.state.showMenu, {
             user: false,
             explore: false
         });
 
-        this.setState({showMenu: updatedMenu});
+        this.setState({showMenu: updatedMenu, displaySearch: false});
     }
-    
-
 
     render() {
         return (
@@ -49,9 +52,11 @@ class Layout extends Component {
                 <NavigationBar 
                     toggleExploreMenu={this.toggleExploreMenuHandler} 
                     toggleUserMenu={this.toggleUserMenuHandler}
+                    toggleSearchbar={this.toggleSearchHandler}
                     closeMenu={this.closeMenuHandler}
-                    showMenu={this.state.showMenu}/>
-                <main>
+                    showMenu={this.state.showMenu}
+                    showSearchbar={this.state.displaySearch}/>
+                <main onClick={this.closeMenuHandler}>
                     {this.props.children}
                 </main>
                 <Footer/>
