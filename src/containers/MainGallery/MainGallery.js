@@ -24,7 +24,7 @@ class MainGallery extends Component {
         const pageId = location.key;
 
         if (this.state.page_id !== location.key) {
-            // retrieve the images from the API
+            // Store API key and gallery-type in variables
             const apiKey = "136304-b12526e3e307af45bcca2c3ea";
             let galleryType = type;
 
