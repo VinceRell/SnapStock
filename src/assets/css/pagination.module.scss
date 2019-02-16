@@ -1,0 +1,33 @@
+.pagination {
+    list-style: none;
+    width: 320px;
+    margin: 1rem auto;
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    &_item_link{
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: #ccc;
+        color: #333;
+    }
+
+    &_item_link:hover,
+    &_item_active {
+        background: #333;
+        color: #fff;
+    }
+}
+
+
+@media (min-width: 780px) {
+    .pagination {
+        &_item_link{
+            font-size: 1.1rem;
+        }
+    }
+}

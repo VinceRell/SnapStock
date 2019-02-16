@@ -18,8 +18,9 @@
         @extend .Form__searchform;
         margin: 0;
         padding: 0;
-        border: 1px solid rgba(0,0,0, 0.2);
+        border: 1px solid rgba(0,0,0, 0.1);
         border-radius: 0px;
+        box-shadow: 1px 1px 1px  rgba(0,0,0, 0.1);
     }
 }
 
