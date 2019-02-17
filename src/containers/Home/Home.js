@@ -18,15 +18,15 @@ class Home extends Component {
     let galleryType = type;
 
     // build the query string
-    let req = `/?key=${apiKey}&lang=nl&image_type=${galleryType}`;
+    let req = `/?key=${apiKey}&lang=nl&image_type=${galleryType}&per_page=24`;
     if (galleryType === "videos") {
-      req = `/${galleryType}/?key=${apiKey}&lang=nl`;
+      req = `/${galleryType}/?key=${apiKey}&lang=nl&per_page=24`;
     }
  
     // fetch images from the api, cut total image down to fit on page
     axios.get(req)
       .then(response => {
-        let galleryCollection = response.data.hits.slice(0, 18);
+        let galleryCollection = response.data.hits;
         this.setState({ galleryType: galleryType, gallery: galleryCollection });
       })
       .catch(error => error);

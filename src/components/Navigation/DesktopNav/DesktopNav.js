@@ -12,7 +12,7 @@ const desktopNav = (props) => {
                   <SubMenu>
                         <MenuItem routeName="/editors_choice" linkType={"SubItem"} linkName={"Editor's Choice"} />
                         <MenuItem routeName="/gallery" linkType={"SubItem"} linkName={"Beelden"} />
-                        <MenuItem routeName="/gallery" linkType={"SubItem"} linkName={"Videos"} />
+                        <MenuItem routeName="/gallery/videos" linkType={"SubItem"} linkName={"Videos"} />
                   </SubMenu>
             );
       }

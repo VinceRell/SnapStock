@@ -43,16 +43,12 @@
 
 }
 
-@media (min-width: 400px) {
-    .Hero {
-        height: 80vh;
-    }
-}
+
 
 @media (min-width: 600px) {
     .Hero {
-        height: 90vh;
-
+        height: 65vh;
+       
         &__content {
             max-width: 600px;
             top: 40%;
@@ -71,6 +67,7 @@
 
 @media (min-width: 800px) {
     .Hero {
+        height: 70vh;
 
         &__content {
             max-width: 800px;

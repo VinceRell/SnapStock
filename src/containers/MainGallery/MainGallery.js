@@ -18,17 +18,18 @@ class MainGallery extends Component {
 
     getGalleryHandler(type) {
         const apiKey = "136304-b12526e3e307af45bcca2c3ea";
-        let galleryType = type;
+        const { location } = this.props;
+        let galleryType = location.pathname.replace("/gallery/", "") !== "videos" ? type : "videos"; 
         let pageNumber = this.state.activePage;
         let req = "";
 
         if (this.props.location.search) {
             // convert the search term for the api url
-            let searchTerm = decodeURIComponent(this.props.location.search)
+            let searchTerm = decodeURIComponent(location.search)
                 .substring(1).split(" ").join("+");
 
             //filter out the gallerytype from the url
-            galleryType = this.props.location.pathname.replace("/gallery/", "");
+            galleryType = location.pathname.replace("/gallery/", "");
             req = galleryType !== "videos" ?
                 `/?key=${apiKey}&lang=nl&q=${searchTerm}&image_type=${galleryType}&page=${pageNumber}&per_page=24` :
                 `/videos/?key=${apiKey}&lang=nl&q=${searchTerm} &video_type=all&page=${pageNumber}&per_page=24`;
@@ -67,7 +68,7 @@ class MainGallery extends Component {
         this.getGalleryHandler("all");
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) { 
         if(prevState.activePage !== this.state.activePage || prevState.page_id !== this.state.page_id) {
             this.getGalleryHandler("all");
         }

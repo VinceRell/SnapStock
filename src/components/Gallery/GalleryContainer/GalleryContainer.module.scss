@@ -29,5 +29,29 @@
   }
 }
 
+@media (min-width: 600px) {
+  .GalleryContainer {
+    &__container {
+        height: 370px;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .GalleryContainer {
+    &__container {
+        height: 400px;
+    }
+  }
+}
+
+@media (min-width: 760px) {
+  .GalleryContainer {
+    &__container {
+        height: 300px;
+    }
+  }
+}
+
 
 
