@@ -11,7 +11,8 @@ const gallery = (props) => (
             switchHandler={props.switchGallery}/>
         <GalleryContainer 
             galleryTab={props.galleryName}
-            gallery={props.galleryCollection}/>
+            gallery={props.galleryCollection}
+            showImage={props.showImage}/>
     </section>
 );
 

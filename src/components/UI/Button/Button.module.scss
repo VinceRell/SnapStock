@@ -5,6 +5,12 @@
     cursor: pointer;
     outline: none;
 
+
+    & a {
+        color: #fff;
+        text-decoration: none;
+    }
+
     &--cta {
         padding: 10px  1.5rem;
         border-radius: 5px;

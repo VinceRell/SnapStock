@@ -20,12 +20,8 @@
         font-size: 1.1rem;
         font-weight: 500;
         color: #333;
-        border-bottom: 2px solid transparent;
-    }
-
-    &__tab_item a {
         text-decoration: none;
-        color: #333;
+        border-bottom: 2px solid transparent;
     }
 
     &__tab_item:hover,
