@@ -14,9 +14,10 @@ const SingleImage = (props) => {
 
         "fas":{
             position: "absolute",
-            top: "-10px",
-            right: "-10px",
-            padding: "1rem",
+            top: "0",
+            right: "0",
+            padding: "0.5rem",
+            fontSize: "1.2rem",
             cursor: "pointer",
             ":hover": {
                 opacity: "0.7"
@@ -64,8 +65,11 @@ const SingleImage = (props) => {
                 opacity: "0.7"
             }
         }
-    
     }
+
+    let source = props.galleryType !== "videos" ? 
+                (<img src={props.source} alt={props.title} />)
+                :(<video controls src={props.source}></video>);
 
     return (
         <React.Fragment>
@@ -76,7 +80,7 @@ const SingleImage = (props) => {
 
             <div className={classes.single_image__content}>
                 <div className={classes.single_image__img_container}>
-                    <img src={props.imgScource} alt={props.title} className={classes.single_image__img}/>
+                    {source}
                     <h1 className={classes.single_image__title}>{props.title}</h1>
                 </div>
                 

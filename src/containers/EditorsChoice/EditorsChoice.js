@@ -5,6 +5,8 @@ import classes from '../../assets/css/pagination.module.scss';
 //component imports
 import Gallery from '../../components/Gallery/Gallery';
 import Pagination from "react-js-pagination";
+import Modal from '../../components/UI/Modal/Modal';
+import SingleImage from '../../components/Gallery/SingleImage/SingleImage';
 
 
 class EditorsChoice extends Component {
@@ -12,7 +14,9 @@ class EditorsChoice extends Component {
     galleryType: null,
     gallery: null,
     totalHits: 0,
-    activePage: 1
+    activePage: 1,
+    imageID: null,
+    showModal: false
   }
 
 
@@ -60,16 +64,41 @@ class EditorsChoice extends Component {
     this.setState({ activePage: pageNumber });
   }
 
+  showSingleImageHandler = (id) => {
+    this.setState({imageID: id, showModal: true});
+ }
+
+ closeImageHandler = () => {
+   this.setState({imageID: null, showModal: false});
+ }
+
+
   
   render() {
-    const { galleryType, gallery, activePage, totalHits } = this.state;
+    const { galleryType, gallery, activePage, totalHits, imageID, showModal} = this.state;
+    let singleImage = null;
+    if(gallery && imageID) {
+      let image = [...gallery].find(img => img.id === imageID);
+      let imgSource = galleryType !== "videos" ? image.webformatURL : image.videos.tiny.url;
+      singleImage = <SingleImage 
+                      title={image.tags}
+                      source={imgSource}
+                      author={image.user}
+                      authorID={image.user_id}
+                      galleryType={galleryType}
+                      closeImage={this.closeImageHandler}/> 
+    }
 
     return (
       <section>
+        <Modal showModal={showModal} closeImage={this.closeImageHandler}>
+            {singleImage}
+        </Modal>
         <Gallery
           galleryCollection={gallery}
           galleryName={galleryType}
-          switchGallery={this.switchGalleryHandler} />
+          switchGallery={this.switchGalleryHandler} 
+          showImage={this.showSingleImageHandler}/>
         <Pagination
           activePage={activePage}
           totalItemsCount={totalHits}

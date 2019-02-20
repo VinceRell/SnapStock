@@ -6,6 +6,8 @@ import titleClasses from './MainGallery.module.scss';
 // componnt imports
 import GalleryContainer from '../../components/Gallery/GalleryContainer/GalleryContainer';
 import Pagination from "react-js-pagination";
+import Modal from '../../components/UI/Modal/Modal';
+import SingleImage from '../../components/Gallery/SingleImage/SingleImage';
 
 class MainGallery extends Component {
     state = {
@@ -13,7 +15,9 @@ class MainGallery extends Component {
         gallery: null,
         page_id: "",
         totalHits: 0,
-        activePage: 1
+        activePage: 1,
+        imageID: null,
+        showModal: false
     }
 
     getGalleryHandler(type) {
@@ -78,18 +82,42 @@ class MainGallery extends Component {
         this.setState({ activePage: pageNumber });
     }
 
+    showSingleImageHandler = (id) => {
+        this.setState({imageID: id, showModal: true});
+    }
+    
+     closeImageHandler = () => {
+       this.setState({imageID: null, showModal: false});
+    }
+
 
     render() {
-        const { galleryType, gallery, activePage, totalHits } = this.state;
+        const { galleryType, gallery, activePage, totalHits, imageID, showModal} = this.state;
         let searchTerm = this.props.location.search ? `Voor ${this.props.location.search.substring(1)}` : "";
+        let singleImage = null;
+        if(gallery && imageID) {
+          let image = [...gallery].find(img => img.id === imageID);
+          let imgSource = galleryType !== "videos" ? image.webformatURL : image.videos.tiny.url;
+          singleImage = <SingleImage 
+                          title={image.tags}
+                          source={imgSource}
+                          author={image.user}
+                          authorID={image.user_id}
+                          galleryType={galleryType}
+                          closeImage={this.closeImageHandler}/> 
+        }
     
         return (
             <div>
                 <h1 className={titleClasses.main_gallery__title}>{galleryType !== "videos" ? "Afbeeldingen" : "Video's"}</h1>
                 <h3 className={titleClasses.main_gallery__subtitle}>{`${searchTerm} ${totalHits} resultaten`}</h3>
+                <Modal showModal={showModal} closeImage={this.closeImageHandler}>
+                    {singleImage}
+                </Modal>
                 <GalleryContainer
                     gallery={gallery}
-                    galleryTab={galleryType} />
+                    galleryTab={galleryType} 
+                    showImage={this.showSingleImageHandler}/>
                 <Pagination
                     activePage={activePage}
                     totalItemsCount={totalHits}

@@ -57,11 +57,13 @@ class Home extends Component {
     let singleImage = null;
     if(gallery && imageID) {
       let image = [...gallery].find(img => img.id === imageID);
+      let imgSource = galleryType !== "videos" ? image.webformatURL : image.videos.tiny.url;
       singleImage = <SingleImage 
                       title={image.tags}
-                      imgScource={image.webformatURL}
+                      source={imgSource}
                       author={image.user}
                       authorID={image.user_id}
+                      galleryType={galleryType}
                       closeImage={this.closeImageHandler}/> 
     }
 
