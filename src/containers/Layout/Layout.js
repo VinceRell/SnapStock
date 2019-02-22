@@ -12,7 +12,8 @@ class Layout extends Component {
             user: false,
             explore: false
         },
-        displaySearch: false
+        displaySearch: false,
+        isSignedIn: false
     }
 
     toggleExploreMenuHandler = () => {
@@ -55,7 +56,8 @@ class Layout extends Component {
                     toggleSearchbar={this.toggleSearchHandler}
                     closeMenu={this.closeMenuHandler}
                     showMenu={this.state.showMenu}
-                    showSearchbar={this.state.displaySearch}/>
+                    showSearchbar={this.state.displaySearch}
+                    userSignIn={this.state.isSignedIn}/>
                 <main onClick={this.closeMenuHandler}>
                     {this.props.children}
                 </main>

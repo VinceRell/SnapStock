@@ -4,6 +4,7 @@ import classes from './DesktopNav.module.scss';
 //component imports
 import MenuItem from '../MenuItem/MenuItem';
 import SubMenu from '../SubMenu/SubMenu';
+// import SignOut from '../SignOut/SignOut';
 
 const desktopNav = (props) => {
       let exploreMenu = null;
@@ -16,6 +17,20 @@ const desktopNav = (props) => {
                   </SubMenu>
             );
       }
+
+      let authButtons =  (
+            <React.Fragment>
+                  <MenuItem routeName="/signin" linkType={"SubItem"}  linkName={"Inloggen"}/>
+                  <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Aanmelden"}/>
+            </React.Fragment>
+      );
+
+      // if() {
+      //       authButtons =
+      // }
+
+
+      
       return (
             <ul className={classes.DesktopNav}>
                   <li className={classes.Explore} onMouseLeave={props.closeMenu}>
@@ -25,8 +40,9 @@ const desktopNav = (props) => {
                         </div>
                   </li>
 
-                  <MenuItem routeName="/signin" linkType={"MainItem"} linkName={"Aanmelden"} />
-                  <MenuItem routeName="/signup" linkType={"MainItem"} linkName={"Registreren"} />
+
+                  {authButtons}
+
             </ul>
       );
 }

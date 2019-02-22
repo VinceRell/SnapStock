@@ -24,11 +24,11 @@ const mobileNav = (props) => {
 
     let userMenu = null;
     if(props.isShowing.user) {
-        userMenu = (
+        exploreMenu = (
             <SubMenu>
-                <MenuItem routeName="/signin" linkType={"SubItem"} linkName={"Aanmelden"} />
-                <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Registreren"}/>
-            </SubMenu>
+               <MenuItem routeName="/signin" linkType={"SubItem"}  linkName={"Inloggen"}/>
+               <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Aanmelden"} />
+           </SubMenu> 
         );
     }
 
@@ -44,13 +44,14 @@ const mobileNav = (props) => {
     return (
         <ul className={classes.MobileNav}>
 
+            
             <div className={classes.MobileNav__icon_container}>
                 <img src={User} alt="user" className={classes.MobileNav__icon} onClick={props.toggleUser}/>
                 <div onClick={props.closeMenu}>
                     {userMenu}
                 </div>
             </div>
-
+            
            {searchIcon}
     
             <div className={classes.MobileNav__icon_container}>

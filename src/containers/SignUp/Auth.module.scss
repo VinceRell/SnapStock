@@ -1,0 +1,15 @@
+.auth {
+    min-height: 100%;
+
+    &__container {
+        overflow: auto;
+        max-width: 350px;
+        height: 350px;
+        margin: 5rem auto;
+        display:  flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+    }
+}

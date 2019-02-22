@@ -35,6 +35,14 @@
     }
 }
 
+.mobile_item {
+    font-weight: 500;
+
+    & a {
+        padding: 10px 11px;
+    }
+}
+
 @media (min-width: 780px) {
     .SubItem {
         width: 100%;

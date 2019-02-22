@@ -5,7 +5,7 @@ const button = (props) => {
     let styleClasses = props.btnStyles.split(" ").reduce((line, word)=>{
      return line.concat(classes[word]);
     },[]);
-
+  
     return (
         <React.Fragment>
             <button className={styleClasses.join(" ")}>
