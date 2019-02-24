@@ -13,7 +13,7 @@ class Form extends Component {
     state = {
         searchForm: {
             search: {
-                elementType: 'input',
+                elementType: 'search',
                 elementConfig: {
                     type: 'search',
                     placeholder: 'Zoek images, vectors of videos'

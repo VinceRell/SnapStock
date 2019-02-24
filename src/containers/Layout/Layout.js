@@ -47,6 +47,8 @@ class Layout extends Component {
         this.setState({showMenu: updatedMenu, displaySearch: false});
     }
 
+   
+
     render() {
         return (
             <React.Fragment>

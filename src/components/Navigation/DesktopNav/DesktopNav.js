@@ -18,20 +18,21 @@ const desktopNav = (props) => {
             );
       }
 
-      let authButtons =  (
+      let authItems =  (
             <React.Fragment>
-                  <MenuItem routeName="/signin" linkType={"SubItem"}  linkName={"Inloggen"}/>
-                  <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Aanmelden"}/>
+                  <MenuItem routeName="/signin" linkType={"MainItem"}  linkName={"Inloggen"}/>
+                  <MenuItem routeName="/signup" linkType={"MainItem"} linkName={"Aanmelden"}/>
             </React.Fragment>
       );
+      if(props.isSignedIn) {
+            authItems = (
+                <React.Fragment>
+                    <MenuItem routeName="/signout" linkType={"MainItem"} linkName={"uitloggen"} />
+                </React.Fragment>
+            );
+      }
 
-      // if() {
-      //       authButtons =
-      // }
-
-
-      
-      return (
+       return (
             <ul className={classes.DesktopNav}>
                   <li className={classes.Explore} onMouseLeave={props.closeMenu}>
                         <span onMouseEnter={props.toggleExplore}>Verken{String.fromCharCode(9662)}</span>
@@ -41,7 +42,7 @@ const desktopNav = (props) => {
                   </li>
 
 
-                  {authButtons}
+                  {authItems}
 
             </ul>
       );

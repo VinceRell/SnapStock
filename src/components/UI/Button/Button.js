@@ -8,7 +8,7 @@ const button = (props) => {
   
     return (
         <React.Fragment>
-            <button className={styleClasses.join(" ")}>
+            <button disabled={props.isDisabled} className={styleClasses.join(" ")}>
                 {props.children}    
             </button>
         </React.Fragment>

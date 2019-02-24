@@ -6,7 +6,7 @@ const input = (props) => {
     let inputElement = null;
     
     switch (props.elementType) {
-        case ("input"):
+        case ("search"):
             inputElement = <input
                 className={props.showSearch === "/" ? classes.Input__search : classes.Input__search_nav}
                 {...props.elementConfig}
@@ -27,16 +27,10 @@ const input = (props) => {
             </select>
             );
             break;
-        
-        case ("textarea"):
-            inputElement = <textarea
-                {...props.elementConfig}
-                value={props.value}
-                onChange={props.changed} />;
-            break;
 
         default:
             inputElement = <input
+                className={classes.Input__default}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed} />

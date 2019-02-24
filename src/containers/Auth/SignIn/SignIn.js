@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { withFirebase } from '../../components/Firebase';
+import { withFirebase } from '../../../components/Firebase';
+
 
 class SignIn extends Component {
 
   state = {
-    username: '',
     email: '',
-    passwordOne: '',
-    passwordTwo: '',
+    password: '',
     error: null
   }
 
@@ -28,7 +27,7 @@ class SignIn extends Component {
     event.preventDefault();
   };
 
-  onChange = event => {
+  inputChangeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -42,14 +41,14 @@ class SignIn extends Component {
         <input
           name="email"
           value={email}
-          onChange={this.onChange}
+          onChange={this.inputChangeHandler}
           type="text"
           placeholder="Email Address"
         />
         <input
           name="password"
           value={password}
-          onChange={this.onChange}
+          onChange={this.inputChangeHandler}
           type="password"
           placeholder="Password"
         />

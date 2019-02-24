@@ -1,0 +1,40 @@
+.auth {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: url(../images/auth-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    &__container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 310px;
+        padding: 1rem;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+
+    &__title{
+        text-align: center;
+        color: #333;
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
+}
+
+@media (min-width: 600px) {
+    .auth {
+        &__title {
+            font-size: 1.6rem;
+        }
+    }
+}
