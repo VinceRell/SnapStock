@@ -1,30 +1,43 @@
-.DesktopNav {
+.desktopNav {
     display: none;
 }
 
 @media (min-width: 780px) {
-    .DesktopNav {
+    .desktopNav {
+        list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-    }
 
-    .Explore {
-        position: relative;
-        list-style: none;
-        font-weight: 500;
-        color: #333;
-        cursor: pointer;
-
-        & span {
-            padding: 20px 22px;
+        &__icon_container {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        &__icon {
+            width: 45px;
+            padding: 16px 12px;
         }
 
-        & span:hover {
-            background: #b7b7b7;
+        &__item {
+            position: relative;
+            list-style: none;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+    
+            & span {
+                padding: 20px 22px;
+            }
+    
+            & span:hover {
+                background: #b7b7b7;
+            }
         }
     }
+
+
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../../components/Firebase';
 import { updatedObject } from '../../../shared/utility';
 import classes from '../../../assets/css/Auth.module.scss';
@@ -49,19 +48,25 @@ class SignUp extends Component {
   }
 
   onSubmit = event => {
-    const { signUpForm} = this.state;
-    const { email, passwordOne} = signUpForm;
+    event.preventDefault();
+    const { signUpForm } = this.state;
+    const username = signUpForm.username.value;
+    const email = signUpForm.email.value;
+    const password = signUpForm.passwordOne.value;
 
     this.props.firebase
-      .doCreateUserWithEmailAndPassword(email.value, passwordOne.value)
-      .then(authUser => {
+      .doCreateUserWithEmailAndPassword(email, password)
+      .then(() => {
+        this.props.firebase.auth.currentUser.updateProfile({
+          displayName: username
+        });
+      })
+      .then(() =>{
         this.props.history.push("/");
       })
       .catch(error => {
         this.setState({ error });
       });
-
-    event.preventDefault();
   }
 
   inputChangeHandler = (event, inputIdentifier) => {
@@ -75,7 +80,6 @@ class SignUp extends Component {
   };
 
   render() {
-
     const { signUpForm, error } = this.state;
 
     // create an array of objects with the input element as key
@@ -118,4 +122,4 @@ class SignUp extends Component {
   }
 }
 
-export default withRouter(withFirebase(SignUp));
+export default withFirebase(SignUp);

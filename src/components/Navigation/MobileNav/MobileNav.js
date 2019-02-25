@@ -2,8 +2,8 @@ import React from 'react';
 import classes from './MobileNav.module.scss';
 
 //image imports
-import User1 from '../../../assets/images/user-1.png';
-import User2 from '../../../assets/images/user-2.png';
+import userSignedOut from '../../../assets/images/signedOut.png';
+import userSignedIn from '../../../assets/images/signedIn.png';
 import Bars from '../../../assets/images/bars.png';
 import Search from '../../../assets/images/search.png';
 
@@ -13,6 +13,8 @@ import MenuItem from '../MenuItem/MenuItem';
 
 
 const mobileNav = (props) => {
+    const currentUser = {...props.isSignedIn};
+
     let exploreMenu = null;
     if (props.isShowing.explore) {
         exploreMenu = (
@@ -53,9 +55,9 @@ const mobileNav = (props) => {
 
     return (
         <ul className={classes.MobileNav}>
-
+            {props.isSignedIn ? <span>{currentUser.displayName}</span> : null}
             <div className={classes.MobileNav__icon_container}>
-                <img src={props.isSignedIn ? User2 : User1} alt="user" className={classes.MobileNav__icon} onClick={props.toggleUser} />
+                <img src={props.isSignedIn ? userSignedIn : userSignedOut} alt="user" className={classes.MobileNav__icon} onClick={props.toggleUser} />
                 <div onClick={props.closeMenu}>
                     {userMenu}
                 </div>
@@ -69,7 +71,6 @@ const mobileNav = (props) => {
                     {exploreMenu}
                 </div>
             </div>
-
         </ul>
     );
 

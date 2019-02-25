@@ -54,6 +54,7 @@ const NavigationBarContext = (props) => {
                     isShowing={props.showMenu}
                     isSignedIn={props.userSignedIn}
                     toggleExplore={props.toggleExploreMenu}
+                    toggleUser={props.toggleUserMenu}
                     closeMenu={props.closeMenu} />
 
             </nav>
