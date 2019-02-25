@@ -5,7 +5,7 @@ import classes from './MobileNav.module.scss';
 import userSignedOut from '../../../assets/images/signedOut.png';
 import userSignedIn from '../../../assets/images/signedIn.png';
 import Bars from '../../../assets/images/bars.png';
-import Search from '../../../assets/images/search.png';
+import Search from '../../../assets/images/search2.png';
 
 //component imports
 import SubMenu from '../SubMenu/SubMenu';
@@ -13,9 +13,10 @@ import MenuItem from '../MenuItem/MenuItem';
 
 
 const mobileNav = (props) => {
-    const currentUser = {...props.isSignedIn};
-
     let exploreMenu = null;
+    let userMenu = null;
+    let searchIcon = null;
+
     if (props.isShowing.explore) {
         exploreMenu = (
             <SubMenu>
@@ -26,51 +27,55 @@ const mobileNav = (props) => {
         );
     }
 
-    let userMenu = null;
     if (props.isShowing.user) {
-        exploreMenu = (
+        userMenu = (
             <SubMenu>
                 <MenuItem routeName="/signin" linkType={"SubItem"} linkName={"Inloggen"} />
                 <MenuItem routeName="/signup" linkType={"SubItem"} linkName={"Aanmelden"} />
             </SubMenu>
         );
        if(props.isSignedIn) {
-        exploreMenu = (
+        userMenu = (
             <SubMenu>
                 <MenuItem routeName="/signout" linkType={"SubItem"} linkName={"uitloggen"} />
             </SubMenu>
         );
        }
     }
-
-    let searchIcon = null;
+    
     if (props.pageLocation !== "/") {
         searchIcon = (
-            <div className={classes.MobileNav__icon_container}>
-                <img src={Search} alt="search" className={classes.MobileNav__icon} onClick={props.toggleSearch} />
-            </div>
+           <li className={classes.MobileNav__item}>
+                <div>
+                    <img src={Search} alt="search" className={classes.mobileNav__icon} onClick={props.toggleSearch} />
+                </div>
+           </li>
         );
     }
 
 
+
     return (
-        <ul className={classes.MobileNav}>
-            {props.isSignedIn ? <span>{currentUser.displayName}</span> : null}
-            <div className={classes.MobileNav__icon_container}>
-                <img src={props.isSignedIn ? userSignedIn : userSignedOut} alt="user" className={classes.MobileNav__icon} onClick={props.toggleUser} />
-                <div onClick={props.closeMenu}>
+        <ul className={classes.mobileNav}>
+            <li className={classes.mobileNav__item}>
+                {
+                    props.isSignedIn ? 
+                        <img src={userSignedIn} alt="user" className={classes.mobileNav__icon} onClick={props.toggleUser}/>:
+                        <img src={userSignedOut} alt="user" className={classes.mobileNav__icon} onClick={props.toggleUser} />
+                }
+                <div onClick={props.closeMenu} className={classes.mobileNav__sub_container}>
                     {userMenu}
                 </div>
-            </div>
+            </li>
 
             {searchIcon}
 
-            <div className={classes.MobileNav__icon_container}>
-                <img src={Bars} alt="bars" className={classes.MobileNav__icon} onClick={props.toggleExplore} />
-                <div onClick={props.closeMenu}>
+            <li className={classes.mobileNav__item}>
+                <img src={Bars} alt="bars" className={classes.mobileNav__icon} onClick={props.toggleExplore} />
+                <div onClick={props.closeMenu} className={classes.mobileNav__sub_container}>
                     {exploreMenu}
                 </div>
-            </div>
+            </li>
         </ul>
     );
 

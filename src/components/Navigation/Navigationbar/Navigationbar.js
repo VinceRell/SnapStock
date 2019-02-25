@@ -37,7 +37,6 @@ const NavigationBarContext = (props) => {
         <header className={classes.main_header}>
             <div className={classes.main_header__item_container}>
                 <Logo />
-
                 {displayForm}
             </div>
 
@@ -56,7 +55,6 @@ const NavigationBarContext = (props) => {
                     toggleExplore={props.toggleExploreMenu}
                     toggleUser={props.toggleUserMenu}
                     closeMenu={props.closeMenu} />
-
             </nav>
         </header>
     );

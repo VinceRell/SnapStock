@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './SubMenu.module.scss';
 
 const subMenu = (props) => (
-    <ul className={classes.SubMenu}>
+    <ul className={classes.subMenu}>
         {props.children}
     </ul>
 );

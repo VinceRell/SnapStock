@@ -11,6 +11,7 @@
     }
 
     &__searchbar_container {
+        z-index: 800;
         position: absolute;
         width: 100vw;
         transform:  scaleY(0);

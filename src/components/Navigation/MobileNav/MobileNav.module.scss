@@ -1,24 +1,34 @@
-.MobileNav {
+.mobileNav {
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    
-    &__icon_container {
-        position: relative;
+
+    &__item {
         cursor: pointer;
     }
 
+    &__username {
+        font-weight: 500;
+    }
+
     &__icon {
-        width: 45px;
-        padding: 16px 12px;
+        display: inline-block;
+        width: 25px;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+    &__sub_container {
+        position: relative;
     }
 }
 
 @media (min-width: 780px) {
-    .MobileNav {
+    .mobileNav {
         display: none;
     }
 }

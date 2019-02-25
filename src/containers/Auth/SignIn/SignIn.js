@@ -1,65 +1,101 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../../components/Firebase';
+import { updatedObject } from '../../../shared/utility';
+import classes from '../../../assets/css/Auth.module.scss';
+
+// component imports
+import Input from '../../../components/UI/Input/Input';
+import Button from '../../../components/UI/Button/Button';
 
 
 class SignIn extends Component {
 
   state = {
-    email: '',
-    password: '',
+    signInForm: {
+      email: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'email',
+          placeholder: 'E-mail adres'
+        },
+        value: ''
+      },
+      password: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'password',
+          placeholder: 'Wachtwoord'
+        },
+        value: ''
+      }
+    },
     error: null
   }
 
   onSubmit = event => {
-    const { email, password } = this.state;
+    event.preventDefault();
+    const { signInForm } = this.state;
+    const email = signInForm.email.value;
+    const password = signInForm.password.value;
 
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState({ ...this.state });
         this.props.history.push("/");
       })
       .catch(error => {
         this.setState({ error });
       });
 
-    event.preventDefault();
   };
 
-  inputChangeHandler = event => {
-    this.setState({ [event.target.name]: event.target.value });
+  inputChangeHandler = (event, inputIdentifier) => {
+    const updatedForm = updatedObject(this.state.signInForm, {
+      [inputIdentifier]: updatedObject(this.state.signInForm[inputIdentifier], {
+        value: event.target.value
+      })
+    })
+
+    this.setState({ signInForm: updatedForm });
   };
 
   render() {
-    const { email, password, error } = this.state;
+    const { signInForm, error } = this.state;
 
-    const isInvalid = password === '' || email === '';
+    // create an array of objects with the input element as key
+    const formElementArray = [];
+      for (let key in signInForm) {
+        formElementArray.push({
+          id: key,
+          config: signInForm[key]
+        });
+    }
+
+    const isInvalid = signInForm.password.value === '' || signInForm.email.value === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.inputChangeHandler}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.inputChangeHandler}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+      <section className={classes.auth}>
+      <div className={classes.auth__container}>
+        <h1 className={classes.auth__title}>Inloggen</h1>
+        <form onSubmit={this.onSubmit}>
+          {formElementArray.map(formElement => (
+            <Input
+              key={formElement.id}
+              elementType={formElement.config.elementType}
+              elementConfig={formElement.config.elementConfig}
+              value={formElement.config.value}
+              changed={(event) => this.inputChangeHandler(event, formElement.id)} />
+          ))}
 
-        {error && <p>{error.message}</p>}
-      </form>
+          <Button isDisabled={isInvalid} btnStyles={"Btn Btn--cta"}>
+            Inloggen
+          </Button>
+          {error && <p>{error.message}</p>}
+        </form>
+      </div>
+    </section>
     );
   }
 }
 
-export default withRouter(withFirebase(SignIn));
+export default withFirebase(SignIn);

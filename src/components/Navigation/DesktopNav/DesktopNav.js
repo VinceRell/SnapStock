@@ -9,30 +9,8 @@ import SubMenu from '../SubMenu/SubMenu';
 import signedInUser from '../../../assets/images/signedIn.png';
 
 const desktopNav = (props) => {
-      const currentUser = { ...props.isSignedIn };    
       let exploreMenu = null;
       let userMenu = null;
-      let signedOut = (
-            <li className={classes.desktopNav__item} onMouseLeave={props.closeMenu}>
-                  <span onMouseEnter={props.toggleExplore}>{currentUser.displayName}</span>
-                  <div onClick={props.closeMenu}>
-                       <ul>
-                              <MenuItem routeName="/signin" linkType={"MainItem"} linkName={"Inloggen"} />
-                              <MenuItem routeName="/signup" linkType={"MainItem"} linkName={"Aanmelden"} />
-                       </ul>
-                  </div>
-            </li>
-      );
-      let signedIn = (
-            <li className={classes.desktopNav__item} onMouseLeave={props.closeMenu}>
-                  <span onMouseEnter={props.toggleExplore}>{currentUser.displayName}</span>
-                  <img src={signedInUser} alt="user" className={classes.desktopNav__icon}/>
-                  <div onClick={props.closeMenu}>
-                        {userMenu}
-                  </div>
-            </li>
-      );
-
 
       if (props.isShowing.explore) {
             exploreMenu = (
@@ -52,12 +30,30 @@ const desktopNav = (props) => {
             );
       }
 
+      let signedOut = (
+            <React.Fragment>
+                  <MenuItem routeName="/signin" linkType={"MainItem"} linkName={"Inloggen"} />
+                  <MenuItem routeName="/signup" linkType={"MainItem"} linkName={"Aanmelden"} />
+            </React.Fragment>
+      );
+      
+      let signedIn = (
+            <li onMouseLeave={props.closeMenu}>
+                  <span onMouseEnter={props.toggleUser} className={classes.desktopNav__item}>
+                        <img src={signedInUser} alt="user" className={classes.desktopNav__icon}/>
+                  </span>
+                  <div onClick={props.closeMenu} className={classes.desktopNav__sub_container}>
+                        {userMenu}
+                  </div>
+            </li>
+      );
+
 
       return (
-            <ul className={classes.DesktopNav}>
-                  <li className={classes.Explore} onMouseLeave={props.closeMenu}>
-                        <span onMouseEnter={props.toggleExplore}>Verken{String.fromCharCode(9662)}</span>
-                        <div onClick={props.closeMenu}>
+            <ul className={classes.desktopNav}>
+                  <li onMouseLeave={props.closeMenu}>
+                        <span onMouseEnter={props.toggleExplore} className={classes.desktopNav__item}>Verken{String.fromCharCode(9662)}</span>
+                        <div onClick={props.closeMenu} className={classes.desktopNav__sub_container}>
                               {exploreMenu}
                         </div>
                   </li>

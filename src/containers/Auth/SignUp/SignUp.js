@@ -3,7 +3,7 @@ import { withFirebase } from '../../../components/Firebase';
 import { updatedObject } from '../../../shared/utility';
 import classes from '../../../assets/css/Auth.module.scss';
 
-// compoennt imports
+// component imports
 import Input from '../../../components/UI/Input/Input';
 import Button from '../../../components/UI/Button/Button';
 
@@ -50,17 +50,11 @@ class SignUp extends Component {
   onSubmit = event => {
     event.preventDefault();
     const { signUpForm } = this.state;
-    const username = signUpForm.username.value;
     const email = signUpForm.email.value;
     const password = signUpForm.passwordOne.value;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, password)
-      .then(() => {
-        this.props.firebase.auth.currentUser.updateProfile({
-          displayName: username
-        });
-      })
       .then(() =>{
         this.props.history.push("/");
       })
