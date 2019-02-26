@@ -5,17 +5,11 @@
     cursor: pointer;
     outline: none;
 
-
-    & a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    &--cta {
+    &_cta {
         padding: 10px  1.5rem;
         border-radius: 5px;
         font-size: 1.1rem;
-        
+
         &:hover {
             background: #246638;
         }
@@ -26,12 +20,12 @@
         }
     }
 
-    &--search {
+    &_search {
         padding: 10px;
         border-radius: 50%;
     }
 
-    &--search_nav {
+    &_search_nav {
         padding: 5px;
         border-radius: 0px;
         background: #fff;

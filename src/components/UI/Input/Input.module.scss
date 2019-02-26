@@ -10,7 +10,7 @@
     }
 
     &__search {
-        width: 80%;
+        min-width: 50%;
     }
 
     &__search_nav {
@@ -20,17 +20,13 @@
         background: #fff;
     }
 
-    &__select {
-        margin-right: 1rem;
-    }
-
     &__select_nav {
-        @extend .input__select;
         padding: 5px;
         margin: 0;
         height: 30px;
         min-width: 70px;
         background: #fff;
+        border: none;
     }
 
     &__default {
@@ -40,5 +36,13 @@
         border: 1px solid rgba(0,0,0, 0.3);
         box-shadow: inset 1px 1px 1px 1px rgba(0,0,0, 0.1);
         border-radius: 3px;
+    }
+}
+
+@media (min-width:500px) {
+    .input {
+        &__search {
+            width: 70%;
+        }
     }
 }

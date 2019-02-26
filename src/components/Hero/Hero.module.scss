@@ -1,8 +1,9 @@
 .Hero {
     height: 530px;
+    width: 100%;
     position: relative;
     background: url("../../assets/images/hero-bg.jpg") center/ cover no-repeat; 
-    
+    overflow: hidden;
 
     &::before {
         content: '';
@@ -13,17 +14,16 @@
         opacity: 0.5;
     }
 
-
     &__content {
-        width: 100%;
-        max-width: 500px;
-        padding: 1rem;
         position: absolute;
-        text-align: center;
         top: 50%;
         left: 50%;
-        transform: translateY(-50%) translateX(-50%);
+        transform: translate(-50%, -50%);
+        max-width: 700px;
+        width: 100%;
+        text-align: center;
     }
+
 
     &__title {
         margin: 0;
@@ -47,11 +47,6 @@
 
 @media (min-width: 600px) {
     .Hero {
-       
-        &__content {
-            max-width: 600px;
-            top: 40%;
-        }
     
         &__title {
             font-size: 2.2rem;
@@ -66,10 +61,6 @@
 
 @media (min-width: 800px) {
     .Hero {
-
-        &__content {
-            max-width: 800px;
-        }
     
         &__title {
             font-size: 3rem;

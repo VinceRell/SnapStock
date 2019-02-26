@@ -87,7 +87,7 @@ class SignIn extends Component {
               changed={(event) => this.inputChangeHandler(event, formElement.id)} />
           ))}
 
-          <Button isDisabled={isInvalid} btnStyles={"btn btn--cta"}>
+          <Button isDisabled={isInvalid} btnStyles={"btn btn_cta"}>
             Inloggen
           </Button>
           {error && <p>{error.message}</p>}

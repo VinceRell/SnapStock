@@ -72,10 +72,10 @@ class Form extends Component {
         }
         
         let style = classes.Form__searchform;
-        let submitBtn = "btn btn--search";
+        let submitBtn = "btn btn_search";
         if(this.props.location.pathname !== "/") {
             style = classes.Form__searchbar;
-            submitBtn = "btn btn--search_nav"
+            submitBtn = "btn btn_search_nav"
         }
 
         /*
