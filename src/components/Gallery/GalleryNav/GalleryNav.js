@@ -7,7 +7,7 @@ const galleryNav = (props) => {
   if(props.location.pathname === "/") {
     navItem = (
       <li>
-        <Link to="/gallery" className={classes.GalleryNav__tab_item}>
+        <Link to="/gallery" className={classes.galleryNav__tab_item}>
            Meer {String.fromCharCode(8594)}
         </Link>
       </li>
@@ -15,36 +15,36 @@ const galleryNav = (props) => {
   }
 
   return(
-    <section className={classes.GalleryNav}>
-      <nav className={classes.GalleryNav__tab_menu}>
-        <ul className={classes.GalleryNav__tab_items}>
+    <section className={classes.galleryNav}>
+      <nav className={classes.galleryNav__tab_menu}>
+        <ul className={classes.galleryNav__tab_items}>
   
           <li
-            className={[classes.GalleryNav__tab_item, 
-                        props.galleryTab === "photo" ? classes.GalleryNav__active : ''].join(" ")}
+            className={[classes.galleryNav__tab_item, 
+                        props.galleryTab === "photo" ? classes.galleryNav__active : ''].join(" ")}
             onClick={() => props.switchHandler("photo")}>
             Foto's
             </li>
   
           <li
-            className={[classes.GalleryNav__tab_item, 
+            className={[classes.galleryNav__tab_item, 
                         classes["hideItem--tablet"],
-                        props.galleryTab === "illustration" ? classes.GalleryNav__active : ''].join(" ")}
+                        props.galleryTab === "illustration" ? classes.galleryNav__active : ''].join(" ")}
             onClick={() => props.switchHandler("illustration")}>
             Illustraties
             </li>
   
           <li
-            className={[classes.GalleryNav__tab_item, 
+            className={[classes.galleryNav__tab_item, 
                         classes["hideItem--desktop"],
-                        props.galleryTab === "vector" ? classes.GalleryNav__active : ''].join(" ")}
+                        props.galleryTab === "vector" ? classes.galleryNav__active : ''].join(" ")}
             onClick={() => props.switchHandler("vector")}>
             Vectors
             </li>
   
           <li
-            className={[classes.GalleryNav__tab_item,
-                        props.galleryTab === "videos" ? classes.GalleryNav__active : ''].join(" ")}
+            className={[classes.galleryNav__tab_item,
+                        props.galleryTab === "videos" ? classes.galleryNav__active : ''].join(" ")}
             onClick={() => props.switchHandler("videos")}>
             Video's
             </li>

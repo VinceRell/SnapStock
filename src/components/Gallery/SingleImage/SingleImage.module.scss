@@ -1,98 +1,51 @@
-.single_image {  
-    
-    &__content {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    &__img_container {
-        max-width: 800px;
-        max-height: 750px;
-    }
-
-    &__img_container video {
-        height: 100%;
-        width: 100%;
-    }
+.single_image {
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+    "image"
+    "buttons";
 
     &__title {
         text-align: center;
-        font-weight: 400;
         font-size: 1.2rem;
-        margin-top: 1.2rem;
-        margin-left: 0.5rem;
         color: #333;
     }
 
     &__author_section {
-        max-width: 400px;
-        width: 100%;
-        padding: 0.5rem;
-        margin: 1rem auto;
+        margin-top: 1rem;
         display: flex;
-        flex-direction: row;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    &__author_title,
+    &__author_subtitle {
+        margin: 0.5rem;
+        color: #333;
     }
 
     &__author_title {
-        margin: 0;
-        font-size: 1.2rem;
-        color: #333;
-    } 
-
-    &__author_subtitle {
-        margin: 0;
-        font-size: 1rem;
-        color: #333;
+        font-size:  1.2rem;
     }
 
-    &__social_links {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 0.5rem;
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
+    &__author_sub_title {
+        font-size:  1rem;
     }
 }
 
 @media (min-width: 700px) {
-    .single_image { 
-        padding: 1rem; 
-    
-        &__content {
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
+    .single_image {
+        grid-gap: 0.5rem;
+        grid-template-areas: 
+        "image image image buttons"
+        "image image image buttons"
+        "image image image buttons";
+
 
         &__author_section {
-            flex-direction: column;
-        }
-
-        &__author_section button {
-            margin-top: 1rem; 
-        }
-
-        &__img_container {
-            flex: 2;
-            height: auto;
-            margin-left: 0.5rem;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
         }
     }
 }
-
-
-// @media (min-width: 999px) {
-//     .single_image {
-//         &__img_container {
-            
-//         }
-//     }
-// }
