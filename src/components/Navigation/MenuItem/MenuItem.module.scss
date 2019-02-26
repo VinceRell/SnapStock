@@ -20,6 +20,13 @@
     }
 }
 
+.CTA {
+   & a{
+        background: #3eb060;
+        color: #fff;
+   } 
+}
+
 .SubItem {
     font-weight: 500;
     font-size: 0.8rem;

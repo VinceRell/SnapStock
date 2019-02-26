@@ -81,7 +81,7 @@ const SingleImage = (props) => {
                 <h1 className={classes.single_image__title}>{props.title}</h1>
             </div>
 
-            <article>
+            <article className={classes.single_image__info}>
                 <div className={classes.single_image__author_section}>
                     <div>
                         <h4 className={classes.single_image__author_title}>Door:</h4>

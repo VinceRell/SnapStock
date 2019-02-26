@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //component imports
+import asyncComponent from './hoc/AsyncComponent';
 import Layout from './containers/Layout/Layout';
-import Home from './containers/Home/Home';
-import EditorsChoice from './containers/EditorsChoice/EditorsChoice';
-import MainGallery from './containers/MainGallery/MainGallery';
-import SignUp from './containers/Auth/SignUp/SignUp';
-import SignIn from './containers/Auth/SignIn/SignIn';
-import Logout from './containers/Auth/Logout/Logout';
 import { withAuthentication } from './components/Session/Session';
+
+// user imported async component to lazyload routes
+const AsyncHome = asyncComponent(() => import ('./containers/Home/Home'));
+const AsyncEditorsChoice = asyncComponent(() => import ('./containers/EditorsChoice/EditorsChoice'));
+const AsyncMainGallery = asyncComponent(() => import ('./containers/MainGallery/MainGallery'));
+const AsyncSignIn = asyncComponent(() => import ('./containers/Auth/SignIn/SignIn'));
+const AsyncSignUp = asyncComponent(() => import ('./containers/Auth/SignUp/SignUp'));
+const AsyncLogout = asyncComponent(() => import ('./containers/Auth/Logout/Logout'));
 
 class App extends Component {
 
@@ -18,12 +21,12 @@ class App extends Component {
       <BrowserRouter>
         <Layout>
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/signup" component={SignUp} exact />
-            <Route path="/signin" component={SignIn} exact />
-            <Route path="/signout" component={Logout} exact />
-            <Route path="/gallery" component={MainGallery} />
-            <Route path="/editors_choice" component={EditorsChoice} />
+            <Route path="/" exact component={AsyncHome} />
+            <Route path="/signup" component={AsyncSignUp} exact />
+            <Route path="/signin" component={AsyncSignIn} exact />
+            <Route path="/signout" component={AsyncLogout} exact />
+            <Route path="/gallery" component={AsyncMainGallery} />
+            <Route path="/editors_choice" component={AsyncEditorsChoice} />
           </Switch>
         </Layout>
       </BrowserRouter>

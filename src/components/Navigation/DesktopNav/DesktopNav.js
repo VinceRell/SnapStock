@@ -33,7 +33,7 @@ const desktopNav = (props) => {
       let signedOut = (
             <React.Fragment>
                   <MenuItem routeName="/signin" linkType={"MainItem"} linkName={"Inloggen"} />
-                  <MenuItem routeName="/signup" linkType={"MainItem"} linkName={"Aanmelden"} />
+                  <MenuItem routeName="/signup" linkType={"MainItem CTA"} linkName={"Aanmelden"} />
             </React.Fragment>
       );
       

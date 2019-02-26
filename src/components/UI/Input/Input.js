@@ -8,7 +8,7 @@ const input = (props) => {
     switch (props.elementType) {
         case ("search"):
             inputElement = <input
-                className={props.showSearch === "/" ? classes.Input__search : classes.Input__search_nav}
+                className={props.showSearch === "/" ? classes.input__search : classes.input__search_nav}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed} />
@@ -16,7 +16,7 @@ const input = (props) => {
 
         case ("select"):
             inputElement = (<select
-                className={props.showSearch === "/" ? classes.Input__select : classes.Input__select_nav}
+                className={props.showSearch === "/" ? classes.input__select : classes.input__select_nav}
                 value={props.value}
                 onChange={props.changed}>
                 {props.elementConfig.options.map(option => (
@@ -30,7 +30,7 @@ const input = (props) => {
 
         default:
             inputElement = <input
-                className={classes.Input__default}
+                className={classes.input__default}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed} />
