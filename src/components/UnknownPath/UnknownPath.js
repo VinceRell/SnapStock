@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './UnkownPath.module.scss';
+import classes from './UnknownPath.module.scss';
 
 const unkownPath = (props) => (
     <div className={classes.unknown_path}>

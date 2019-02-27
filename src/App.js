@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import asyncComponent from './hoc/AsyncComponent';
 import Layout from './containers/Layout/Layout';
 import { withAuthentication } from './components/Session/Session';
-import UnknownPath from './components/UnkownPath/UnkownPath';
+import UnknownPath from './components/UnknownPath/UnknownPath';
 
 // user imported async component to lazyload routes
 const AsyncHome = asyncComponent(() => import ('./containers/Home/Home'));
