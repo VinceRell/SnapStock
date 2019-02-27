@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import asyncComponent from './hoc/AsyncComponent';
 import Layout from './containers/Layout/Layout';
 import { withAuthentication } from './components/Session/Session';
+import UnknownPath from './components/UnkownPath/UnkownPath';
 
 // user imported async component to lazyload routes
 const AsyncHome = asyncComponent(() => import ('./containers/Home/Home'));
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path="/signout" component={AsyncLogout} exact />
             <Route path="/gallery" component={AsyncMainGallery} />
             <Route path="/editors_choice" component={AsyncEditorsChoice} />
+            <Route component={UnknownPath} />
           </Switch>
         </Layout>
       </BrowserRouter>
