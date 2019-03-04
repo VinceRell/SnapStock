@@ -6,8 +6,8 @@ const galleryNav = (props) => {
   let navItem = null;
   if(props.location.pathname === "/") {
     navItem = (
-      <li>
-        <Link to="/gallery" className={classes.galleryNav__tab_item}>
+      <li className={classes.galleryNav__tab_link}>
+        <Link to="/gallery">
            Meer {String.fromCharCode(8594)}
         </Link>
       </li>
